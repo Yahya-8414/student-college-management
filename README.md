@@ -427,21 +427,59 @@ git push origin feature/your-feature
 
 7. Open a Pull Request.
 
+
+## 📜 Copyright & Registration
+
+This software is registered with the **Copyright Office, Government of India** under the Copyright Act, 1957.
+
+* **Certificate No.:** SW-2025021327  
+* **Application No.:** 14253/2025-CO/SW  
+* **Date of ROC:** 13/08/2025  
+* **Registered Title:** COLLEGE-STUDENT MANAGEMENT SYSTEM  
+
+### Copyright Owners & Authors
+1. **Ruzda Jamir Shaikh**
+2. **Yahya Irfan Shaikh**
+3. **Affan Irfan Shaikh**
+4. **Shifa Samreen**
+5. **Ayesha Ayajmustak Sayyad**
+6. **Prof. Barkha Shahani**
+7. **Dr. Sneha Tirth**
+8. **Prof. Rupali Maske**
+9. **Prof. Sai Takawale**
+10. **Dr. Sujeet More**
+
 ---
 
-## 📄 License
+## 📜 Copyright & Registration
 
-Add your preferred license here.
+This software is registered with the **Copyright Office, Government of India** under the Copyright Act, 1957.
 
-For example:
+* **Certificate No.:** SW-2025021327  
+* **Application No.:** 14253/2025-CO/SW  
+* **Date of ROC:** 13/08/2025  
+* **Registered Title:** COLLEGE-STUDENT MANAGEMENT SYSTEM  
 
-```text
-This project is licensed under the MIT License.
-```
-
-If this is an academic project, you can instead specify the applicable academic/project usage terms.
+### Copyright Owners & Authors
+1. **Ruzda Jamir Shaikh**
+2. **Yahya Irfan Shaikh**
+3. **Affan Irfan Shaikh**
+4. **Shifa Samreen**
+5. **Ayesha Ayajmustak Sayyad**
+6. **Prof. Barkha Shahani**
+7. **Dr. Sneha Tirth**
+8. **Prof. Rupali Maske**
+9. **Prof. Sai Takawale**
+10. **Dr. Sujeet More**
 
 ---
+
+## 📄 License & Terms
+
+All rights reserved © 2025. Unauthorized copying, distribution, modification, or commercial exploitation of this software and its source code is strictly prohibited without explicit written permission from the copyright owners listed above.
+
+---
+
 
 ## 👨‍💻 Author
 
