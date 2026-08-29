@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="register-container">
+    <h2>Modify User Profile</h2>
+    
+    <form method="POST" action="{{ url_for('edit_user', user_id=user['_id']) }}">
+        
+        <label style="font-weight: bold; color: #A89C29; margin-top: 5px;">Username</label>
+        <input type="text" name="username" value="{{ user['username'] }}" required>
+        
+        <label style="font-weight: bold; color: #A89C29; margin-top: 5px;">Email Address</label>
+        <input type="email" name="email" value="{{ user['email'] }}" required>
+        
+        <label style="font-weight: bold; color: #A89C29; margin-top: 5px;">System Role Permission</label>
+        <select name="role" required style="padding: 10px; margin: 10px 0; border: 1px solid #E52020; border-radius: 5px; background: white;">
+            <option value="student" {% if user['role'] == 'student' %}selected{% endif %}>Student</option>
+            <option value="faculty" {% if user['role'] == 'faculty' %}selected{% endif %}>Faculty</option>
+            <option value="admin" {% if user['role'] == 'admin' %}selected{% endif %}>Admin</option>
+        </select>
+        
+        <button type="submit" style="margin-top: 10px;">Update User</button>
+    </form>
+    
+    <p style="margin-top: 15px;"><a href="{{ url_for('manage_users') }}">← Back to User Management</a></p>
+</div>
+{% endblock %}

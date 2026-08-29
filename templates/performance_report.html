@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="performance-container">
+    <h2>Academic Performance & Attendance Ledger</h2>
+    <p style="text-align: left; color: #666; margin-bottom: 20px;">Comprehensive aggregate overview of student marks and session attendance ratings.</p>
+
+    <table class="performance-table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Calculated Grade Average</th>
+                <th>Session Attendance Rate</th>
+                <th>Status Flags</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in performance_data %}
+            <tr>
+                <td><strong>{{ record['username'] }}</strong></td>
+                <td>{{ record['average_grade'] }} / 100</td>
+                <td>
+                    <strong>{{ record['attendance_rate'] }}%</strong>
+                </td>
+                <td>
+                    {% if record['attendance_rate'] < 75 %}
+                        <span class="btn btn-secondary" style="padding: 3px 10px; font-size: 0.8em; font-weight: bold; cursor: default;">Deported/Risk</span>
+                    {% else %}
+                        <span class="btn btn-primary" style="padding: 3px 10px; font-size: 0.8em; font-weight: bold; background-color: green; cursor: default;">Clear</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

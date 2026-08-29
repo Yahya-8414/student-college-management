@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="results-container">
+    <h2>Academic Results</h2>
+    <p>Here you can view your academic results for the current semester.</p>
+
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Credits</th>
+                <th>Grade</th>
+                <th>GPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mathematics</td>
+                <td>3</td>
+                <td>A</td>
+                <td>4.0</td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>4</td>
+                <td>B+</td>
+                <td>3.5</td>
+            </tr>
+            <tr>
+                <td>Chemistry</td>
+                <td>3</td>
+                <td>A-</td>
+                <td>3.7</td>
+            </tr>
+            <tr>
+                <td>Biology</td>
+                <td>3</td>
+                <td>B</td>
+                <td>3.0</td>
+            </tr>
+            <tr>
+                <td>English</td>
+                <td>2</td>
+                <td>A</td>
+                <td>4.0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="gpa-summary">
+        <h3>Total Credits: 15</h3>
+        <h3>GPA: 3.54</h3>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard-container">
+    <h2>Student Portal</h2>
+    <p>Welcome, <strong>{{ session['username'] }}</strong>! Track your academic progress and access resources below.</p>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>My Tracking</h3>
+            <p>Review your lecture attendance percentages and terminal examination marks.</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="{{ url_for('view_attendance') }}" class="card-button">View Attendance</a>
+                <a href="{{ url_for('view_grades') }}" class="card-button">View Results</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Resources & Schedule</h3>
+            <p>Download subject curriculums and verify your current class meeting timetables.</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="{{ url_for('view_syllabus') }}" class="card-button">View Syllabus</a>
+                <a href="{{ url_for('view_timetable') }}" class="card-button">View Timetable</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>My Groups</h3>
+            <p>Check the academic course batch parameters you are currently assigned to.</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="{{ url_for('view_batches') }}" class="card-button">My Batch Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Trinity College</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="College Logo">
+            <div class="logo-text">
+                <p class="head1">KJ's Educational Institute's</p>
+                <p class="head2">Trinity College of Engineering and Research</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                {% if 'username' in session %}
+                    {% if session['role'] == 'admin' %}
+                        <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
+                    {% elif session['role'] == 'faculty' %}
+                        <li><a href="{{ url_for('faculty_dashboard') }}">Faculty Dashboard</a></li>
+                    {% elif session['role'] == 'student' %}
+                        <li><a href="{{ url_for('student_dashboard') }}">Student Dashboard</a></li>
+                    {% endif %}
+                    <li><span class="welcome-text">Hello, {{ session['username'] }}</span></li>
+                    <li><a href="{{ url_for('logout') }}" class="logout-btn">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="main-content {% if 'role' not in session %}full-width{% endif %}">
+        
+        {% if 'role' in session %}
+        <aside class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                {% if session['role'] == 'admin' %}
+                    <li><a href="{{ url_for('manage_users') }}">Manage Users</a></li>
+                    <li><a href="{{ url_for('view_reports') }}">System Reports</a></li>
+                
+                {% elif session['role'] == 'faculty' %}
+                    <li><a href="{{ url_for('faculty_attendance') }}">Take Attendance</a></li>
+                    <li><a href="{{ url_for('faculty_grades') }}">Manage Grades</a></li>
+                    <li><a href="{{ url_for('upload_syllabus') }}">Upload Syllabus</a></li>
+                    <li><a href="{{ url_for('upload_timetable') }}">Upload Timetable</a></li>
+                    <li><a href="{{ url_for('create_batch') }}">Create Batch</a></li>
+                    <li><a href="{{ url_for('view_students') }}">View Students</a></li>
+                    <li><a href="{{ url_for('compute_performance') }}">Performance Analytics</a></li>
+                
+                {% elif session['role'] == 'student' %}
+                    <li><a href="{{ url_for('view_attendance') }}">My Attendance</a></li>
+                    <li><a href="{{ url_for('view_grades') }}">My Results</a></li>
+                    <li><a href="{{ url_for('view_syllabus') }}">View Syllabus</a></li>
+                    <li><a href="{{ url_for('view_timetable') }}">View Timetable</a></li>
+                    <li><a href="{{ url_for('view_batches') }}">My Batch Details</a></li>
+                {% endif %}
+            </ul>
+        </aside>
+        {% endif %}
+
+        <main class="container">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 College Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

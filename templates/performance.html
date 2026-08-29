@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="performance-container">
+    <h2>Academic Performance</h2>
+    <p>Here you can view your academic performance metrics.</p>
+
+    <div class="performance-summary">
+        <h3>Summary</h3>
+        <ul>
+            <li><strong>GPA:</strong> 3.54</li>
+            <li><strong>Attendance Percentage:</strong> 92%</li>
+            <li><strong>Completed Credits:</strong> 15</li>
+            <li><strong>Current Semester:</strong> Fall 2023</li>
+        </ul>
+    </div>
+
+    <h3>Performance Breakdown</h3>
+    <table class="performance-table">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Grade</th>
+                <th>Credits</th>
+                <th>GPA Contribution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mathematics</td>
+                <td>A</td>
+                <td>3</td>
+                <td>4.0</td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>B+</td>
+                <td>4</td>
+                <td>3.5</td>
+            </tr>
+            <tr>
+                <td>Chemistry</td>
+                <td>A-</td>
+                <td>3</td>
+                <td>3.7</td>
+            </tr>
+            <tr>
+                <td>Biology</td>
+                <td>B</td>
+                <td>3</td>
+                <td>3.0</td>
+            </tr>
+            <tr>
+                <td>English</td>
+                <td>A</td>
+                <td>2</td>
+                <td>4.0</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

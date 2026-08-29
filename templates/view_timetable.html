@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="timetable-container"> <h2>Official Academic Timetables</h2>
+    <p style="text-align: left; color: #666; margin-bottom: 20px;">Access your latest schedule matrices and exam timelines below.</p>
+    
+    <table class="timetable-table">
+        <thead>
+            <tr>
+                <th style="width: 70%; text-align: left; padding-left: 20px;">Schedule Details / Document Name</th>
+                <th style="width: 30%;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for timetable in timetables %}
+            <tr>
+                <td style="text-align: left; padding-left: 20px;">
+                    <strong>Timetable Matrix</strong> 
+                    {% if timetable['uploaded_at'] %}
+                        <span style="color: #666; font-size: 0.85em; font-weight: normal; margin-left: 10px;">
+                            (Uploaded: {{ timetable['uploaded_at'].strftime('%Y-%m-%d') }})
+                        </span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ timetable['file_path'] }}" target="_blank" class="card-button" style="display: inline-block; padding: 6px 15px; font-size: 0.9em; text-decoration: none;">
+                        Open Document ↗
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2" style="color: #666; padding: 25px; font-style: italic;">No timetable matrices have been published for your profile yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="syllabus-container">
+    <h2>Academic Curriculum Control</h2>
+    
+    <div class="performance-summary" style="margin-bottom: 35px; padding: 25px;">
+        <h3 style="margin-bottom: 15px; color: #A89C29;">Upload Subject Syllabus</h3>
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_syllabus') }}">
+            <div style="margin-bottom: 15px;">
+                <label for="subject" style="display: block; font-weight: bold; margin-bottom: 5px; color: #333;">Subject / Course Title:</label>
+                <input type="text" name="subject" id="subject" placeholder="e.g., Advanced Java Development" required 
+                       style="padding: 10px; border: 1px solid #E52020; border-radius: 5px; width: 100%; max-width: 500px; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label for="syllabus_file" style="display: block; font-weight: bold; margin-bottom: 5px; color: #333;">Syllabus File (PDF/Document):</label>
+                <input type="file" name="syllabus_file" id="syllabus_file" required 
+                       style="padding: 8px; border: 1px solid #E52020; border-radius: 5px; width: 100%; max-width: 500px; box-sizing: border-box; background: white;">
+            </div>
+            
+            <button type="submit" class="card-button" style="border: none; padding: 10px 25px; font-size: 15px; cursor: pointer;">
+                Publish Syllabus Document
+            </button>
+        </form>
+    </div>
+
+    <h3>Currently Published Syllabi</h3>
+    <table class="syllabus-table" style="margin-top: 15px;">
+        <thead>
+            <tr>
+                <th style="width: 70%; text-align: left; padding-left: 20px;">Course Title</th>
+                <th style="width: 30%;">Live Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for syllabus in syllabi %}
+            <tr>
+                <td style="text-align: left; padding-left: 20px;"><strong>{{ syllabus['subject'] }}</strong></td>
+                <td>
+                    <a href="{{ syllabus['file_path'] }}" target="_blank" class="btn btn-primary" style="font-size: 0.85em; padding: 5px 15px; text-decoration: none;">
+                        Open PDF ↗
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2" style="color: #666; padding: 20px; font-style: italic;">No syllabus paths have been uploaded to the registry database yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

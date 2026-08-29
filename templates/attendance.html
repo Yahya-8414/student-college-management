@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="attendance-container">
+    <h2>Attendance Records</h2>
+    <p>Here you can view and manage your attendance.</p>
+
+    <table class="attendance-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-10-01</td>
+                <td>Mathematics</td>
+                <td>Present</td>
+                <td>On time</td>
+            </tr>
+            <tr>
+                <td>2023-10-02</td>
+                <td>Physics</td>
+                <td>Absent</td>
+                <td>Sick</td>
+            </tr>
+            <tr>
+                <td>2023-10-03</td>
+                <td>Chemistry</td>
+                <td>Present</td>
+                <td>On time</td>
+            </tr>
+            <tr>
+                <td>2023-10-04</td>
+                <td>Biology</td>
+                <td>Present</td>
+                <td>On time</td>
+            </tr>
+            <tr>
+                <td>2023-10-05</td>
+                <td>English</td>
+                <td>Absent</td>
+                <td>Family emergency</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

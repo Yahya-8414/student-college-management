@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="view-students-container">
+    <h2>Students List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.username }}</td>
+                <td>{{ student.email }}</td>
+                <td>
+                    <a href="{{ url_for('view_grades', student_id=student._id) }}" class="btn btn-info">View Grades</a>
+                    <a href="{{ url_for('view_attendance', student_id=student._id) }}" class="btn btn-secondary">View Attendance</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

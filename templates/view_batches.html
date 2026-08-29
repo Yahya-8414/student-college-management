@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="batch-container"> <h2>Your Assigned Academic Batches</h2>
+    <p style="text-align: left; color: #666; margin-bottom: 20px;">Review the specific course cohorts and batch assignments linked to your academic profile.</p>
+    
+    <table class="batch-table">
+        <thead>
+            <tr>
+                <th style="text-align: left; padding-left: 20px; width: 60%;">Batch Name / Code</th>
+                <th style="width: 40%;">Course Reference Identifier</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for batch in batches %}
+            <tr>
+                <td style="text-align: left; padding-left: 20px;"><strong>{{ batch['batch_name'] }}</strong></td>
+                <td><code style="background: #f4f4f4; padding: 4px 8px; border-radius: 4px; font-size: 0.9em; color: #E52020;">{{ batch['course_id'] }}</code></td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2" style="color: #666; padding: 25px; font-style: italic;">Your profile is not currently assigned to any active academic batches.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

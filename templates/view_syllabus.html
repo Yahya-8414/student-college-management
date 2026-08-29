@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="syllabus-container"> <h2>Official Course Syllabi</h2>
+    <p style="text-align: left; color: #666; margin-bottom: 20px;">Download your current academic curriculum and subject outline parameters.</p>
+    
+    <table class="syllabus-table">
+        <thead>
+            <tr>
+                <th style="width: 70%; text-align: left; padding-left: 20px;">Course / Subject Name</th>
+                <th style="width: 30%;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for syllabus in syllabi %}
+            <tr>
+                <td style="text-align: left; padding-left: 20px;">
+                    <strong>{{ syllabus['subject'] }}</strong>
+                </td>
+                <td>
+                    <a href="{{ syllabus['file_path'] }}" target="_blank" class="card-button" style="display: inline-block; padding: 6px 15px; font-size: 0.9em; text-decoration: none;">
+                        Download PDF 📥
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2" style="color: #666; padding: 25px; font-style: italic;">No syllabus documents have been published for your courses yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

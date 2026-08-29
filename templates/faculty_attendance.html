@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="attendance-container">
+    <h2>Record Student Attendance</h2>
+    
+    <form method="POST" action="{{ url_for('faculty_attendance') }}">
+        <div class="performance-summary" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 25px;">
+            <div>
+                <label style="font-weight: bold; color: #A89C29; display: block; margin-bottom: 5px;">Session Date</label>
+                <input type="date" name="date" id="attendance_date" required style="padding: 10px; border: 1px solid #E52020; border-radius: 5px;">
+            </div>
+            <div style="flex-grow: 1;">
+                <label style="font-weight: bold; color: #A89C29; display: block; margin-bottom: 5px;">Subject / Course Title</label>
+                <input type="text" name="subject" placeholder="e.g., Data Structures" required style="padding: 10px; border: 1px solid #E52020; border-radius: 5px; width: 100%; box-sizing: border-box;">
+            </div>
+        </div>
+        
+        <h3>Student Roster</h3>
+        <table class="attendance-table" style="margin-bottom: 25px;">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Mark Attendance Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td><strong>{{ student['username'] }}</strong></td>
+                    <td>
+                        <label style="margin-right: 20px; cursor: pointer; font-weight: bold; color: green;">
+                            <input type="radio" name="attendance_{{ student['_id'] }}" value="{{ student['_id'] }}:present" checked> Present
+                        </label>
+                        <label style="cursor: pointer; font-weight: bold; color: red;">
+                            <input type="radio" name="attendance_{{ student['_id'] }}" value="{{ student['_id'] }}:absent"> Absent
+                        </label>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <button type="submit" class="card-button" style="border: none; padding: 12px 30px; font-size: 16px; cursor: pointer;">Save Attendance Roster</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('attendance_date').valueAsDate = new Date();
+</script>
+{% endblock %}

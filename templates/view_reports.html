@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="reports-container">
+    <h2>Reports</h2>
+    <p>Here you can view various reports related to students and courses.</p>
+
+    <div class="report-cards">
+        <div class="card">
+            <h3>Attendance Report</h3>
+            <p>View attendance records for all students.</p>
+            <a href="{{ url_for('view_attendance') }}" class="btn btn-primary">View Attendance</a>
+        </div>
+
+        <div class="card">
+            <h3>Grades Report</h3>
+            <p>View grades for all students.</p>
+            <a href="{{ url_for('view_grades') }}" class="btn btn-primary">View Grades</a>
+        </div>
+
+        <div class="card">
+            <h3>Performance Report</h3>
+            <p>View performance metrics for students.</p>
+            <a href="{{ url_for('compute_performance') }}" class="btn btn-primary">View Performance</a>
+        </div>
+
+        <div class="card">
+            <h3>Syllabus Report</h3>
+            <p>View syllabi for all courses.</p>
+            <a href="{{ url_for('view_syllabus') }}" class="btn btn-primary">View Syllabus</a>
+        </div>
+
+        <div class="card">
+            <h3>Timetable Report</h3>
+            <p>View timetables for all courses.</p>
+            <a href="{{ url_for('view_timetable') }}" class="btn btn-primary">View Timetable</a>
+        </div>
+
+        <div class="card">
+            <h3>Batch Report</h3>
+            <p>View information about student batches.</p>
+            <a href="{{ url_for('view_batches') }}" class="btn btn-primary">View Batches</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="attendance-container">
+    <h2>Your Attendance Records</h2>
+    <p style="text-align: left; color: #666; margin-bottom: 20px;">Review your daily class presence records below.</p>
+    
+    <table class="attendance-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record['date'].strftime('%Y-%m-%d') }}</td>
+                <td><strong>{{ record['subject'] }}</strong></td>
+                <td>
+                    {% if record['status'] == 'present' %}
+                        <span style="color: green; font-weight: bold; text-transform: uppercase;">● Present</span>
+                    {% else %}
+                        <span style="color: red; font-weight: bold; text-transform: uppercase;">● Absent</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" style="color: #666; padding: 20px; font-style: italic;">No attendance logs have been filed for your account yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

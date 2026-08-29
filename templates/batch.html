@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="batch-container">
+    <h2>Batch Information</h2>
+    <p>Here you can view and manage your batch details.</p>
+
+    <table class="batch-table">
+        <thead>
+            <tr>
+                <th>Batch ID</th>
+                <th>Batch Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Instructor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>101</td>
+                <td>Mathematics Batch A</td>
+                <td>2023-01-15</td>
+                <td>2023-06-15</td>
+                <td>Dr. Smith</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Physics Batch B</td>
+                <td>2023-01-15</td>
+                <td>2023-06-15</td>
+                <td>Dr. Johnson</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Chemistry Batch C</td>
+                <td>2023-01-15</td>
+                <td>2023-06-15</td>
+                <td>Dr. Lee</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>Biology Batch D</td>
+                <td>2023-01-15</td>
+                <td>2023-06-15</td>
+                <td>Dr. Brown</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>English Batch E</td>
+                <td>2023-01-15</td>
+                <td>2023-06-15</td>
+                <td>Ms. Davis</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="batch-actions">
+        <h3>Manage Your Batch</h3>
+        <button class="add-batch-button">Add New Batch</button>
+        <button class="edit-batch-button">Edit Batch</button>
+        <button class="delete-batch-button">Delete Batch</button>
+    </div>
+</div>
+{% endblock %}

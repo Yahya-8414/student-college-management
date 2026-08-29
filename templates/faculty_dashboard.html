@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard-container">
+    <h2>Faculty Panel</h2>
+    <p>Welcome, <strong>{{ session['username'] }}</strong>! Access your academic administration utilities below.</p>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Student Tracking</h3>
+            <p>Take daily attendance records, browse student lists, and calculate performance analytics.</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="{{ url_for('faculty_attendance') }}" class="card-button">Take Attendance</a>
+                <a href="{{ url_for('view_students') }}" class="card-button">View Student List</a>
+                <a href="{{ url_for('compute_performance') }}" class="card-button">Performance Analytics</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Academic Records</h3>
+            <p>Publish student evaluation grades, create new learning batches, and manage group assignments.</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="{{ url_for('faculty_grades') }}" class="card-button">Manage Grades</a>
+                <a href="{{ url_for('create_batch') }}" class="card-button">Create Batch</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Resources & Schedules</h3>
+            <p>Upload current subject syllabi paths and coordinate class timelines for your current batches.</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="{{ url_for('upload_syllabus') }}" class="card-button">Upload Syllabus</a>
+                <a href="{{ url_for('upload_timetable') }}" class="card-button">Upload Timetable</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

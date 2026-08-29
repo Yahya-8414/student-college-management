@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="batch-container"> <h2>Cohort & Batch Management</h2>
+    
+    <div class="performance-summary" style="margin-bottom: 35px; padding: 25px;">
+        <h3 style="margin-bottom: 15px; color: #A89C29;">Create New Academic Batch</h3>
+        <form method="POST" action="{{ url_for('create_batch') }}">
+            
+            <div style="margin-bottom: 15px;">
+                <label for="batch_name" style="display: block; font-weight: bold; margin-bottom: 5px; color: #333;">Batch Name / Code:</label>
+                <input type="text" name="batch_name" id="batch_name" placeholder="e.g., Computer Science 2026-A" required 
+                       style="padding: 10px; border: 1px solid #E52020; border-radius: 5px; width: 100%; max-width: 500px; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label for="course_id" style="display: block; font-weight: bold; margin-bottom: 5px; color: #333;">Assigned Program / Course:</label>
+                <select name="course_id" id="course_id" required 
+                        style="padding: 10px; border: 1px solid #E52020; border-radius: 5px; width: 100%; max-width: 500px; box-sizing: border-box; background: white;">
+                    {% for course in courses %}
+                    <option value="{{ course['_id'] }}">{{ course['course_name'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <button type="submit" class="card-button" style="border: none; padding: 10px 25px; font-size: 15px; cursor: pointer;">
+                Instantiate Batch
+            </button>
+        </form>
+    </div>
+
+    <h3>Currently Active Batches</h3>
+    <table class="batch-table" style="margin-top: 15px;">
+        <thead>
+            <tr>
+                <th style="text-align: left; padding-left: 20px; width: 50%;">Batch Identifier</th>
+                <th style="width: 50%;">Associated Course / ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for batch in batches %}
+            <tr>
+                <td style="text-align: left; padding-left: 20px;"><strong>{{ batch['batch_name'] }}</strong></td>
+                <td><span style="color: #666; font-size: 0.9em;">{{ batch['course_id'] }}</span></td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2" style="color: #666; padding: 20px; font-style: italic;">No academic batches have been cataloged in the registry database yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

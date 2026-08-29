@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard-container">
+    <h2>Welcome to the College Management System</h2>
+    <p>Here you can manage your academic activities efficiently.</p>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Attendance</h3>
+            <p>View and manage your attendance records.</p>
+            <a href="{{ url_for('attendance') }}" class="card-button">Go to Attendance</a>
+        </div>
+        <div class="card">
+            <h3>Results</h3>
+            <p>Check your academic results and performance.</p>
+            <a href="{{ url_for('results') }}" class="card-button">View Results</a>
+        </div>
+        <div class="card">
+            <h3>Syllabus</h3>
+            <p>Access the syllabus for your courses.</p>
+            <a href="{{ url_for('syllabus') }}" class="card-button">View Syllabus</a>
+        </div>
+        <div class="card">
+            <h3>Timetable</h3>
+            <p>Check your class timetable.</p>
+            <a href="{{ url_for('timetable') }}" class="card-button">View Timetable</a>
+        </div>
+        <div class="card">
+            <h3>Batch</h3>
+            <p>Manage your batch information.</p>
+            <a href="{{ url_for('batch') }}" class="card-button">Manage Batch</a>
+        </div>
+        <div class="card">
+            <h3>Performance</h3>
+            <p>Analyze your academic performance.</p>
+            <a href="{{ url_for('performance') }}" class="card-button">View Performance</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
